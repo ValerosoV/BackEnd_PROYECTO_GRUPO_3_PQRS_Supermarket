@@ -1,9 +1,20 @@
 {
+  "name": "nodejs-express-crud-mysql",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "author": "",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node src/app.js"
+  },
   "dependencies": {
     "bcrypt": "^6.0.0",
     "express": "^5.1.0",
+    "multer": "^2.0.0",
     "mysql": "^2.18.1",
-    "mysql2": "^3.14.1"
+    "mysql2": "^3.14.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

@@ -11,9 +11,12 @@ npm init -y
 
 
 //instalar paquetes para: 
-//    encriptar contraseñas,
-//    usar un framework para estructurar el backend,
+//    encriptar contraseñas
+    (npm i bycript --save)
+//    usar un framework para estructurar el backend
+    (npm i express --save)
 //    conectarse a las BD MySQL.
+    (npm i mysql, mysql2 --save)
 
 
 //instalar paquete de desarrollo para actualizar el servidor web
