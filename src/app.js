@@ -1,9 +1,13 @@
 import express from 'express';                          //framework
 import clientesRouter from './routes/clientes.js';      //peticiones de Cliente
-import radicadosRouter from './routes/radicados.js';
-import authRouter from './routes/auth.js';              //peticiones de Auth  
-import multer from 'multer';                            //algo pra gesionar almacenamiento de archivos   
-import { v4 as uuidv4 } from 'uuid';                    //identiciador unico  
+import radicadosRouter from './routes/radicados.js';    //peticiones de Radicado
+import adminsRouter from './routes/admins.js';          //peticiones de Admin
+
+import authClientsRouter from './authParaRoutes/authClientes.js';//peticiones de Auth
+import authAdminsRouter from './authParaRoutes/authAdmins.js';   //peticiones de Auth  
+
+import multer from 'multer';                            //paquete para gesionar almacenamiento de archivos   
+import { v4 as uuidv4 } from 'uuid';                    //paquete para identiciador unico  
 
 const app = express();      // Crear una instancia de la app con Express
 app.use(express.json());    // Middleware para parsear con JSON
@@ -22,10 +26,14 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Rutas
+// Rutas de las Tablas
 app.use('/api', clientesRouter);
-app.use('/api', upload.single('anexo'), radicadosRouter); // Multer solo aquí
-app.use('/api', authRouter);
+app.use('/api', adminsRouter);                            // Rutas de Admin
+app.use('/api', upload.single('anexo'), radicadosRouter); // Rutas de Radicados usando multer para subir direcciones de archivos
+
+// Rutas de autenticación
+app.use('/api', authAdminsRouter);
+app.use('/api', authClientsRouter); 
 
 // Iniciar servidor
 const PORT = 3000;

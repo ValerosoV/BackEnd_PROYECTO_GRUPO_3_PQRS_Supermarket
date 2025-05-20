@@ -18,8 +18,11 @@ router.post('/login', async (req, res) => {
     }
 
     // Buscar usuario en la base de datos
+
+    //if()
+    
     const [users] = await pool.query(
-      'SELECT * FROM usuarios WHERE username = ?',
+      'SELECT * FROM admins WHERE username = ?',
       [username]
     );
 
@@ -36,7 +39,7 @@ router.post('/login', async (req, res) => {
     // Generar y guardar token
     const token = uuidv4();
     await pool.query(
-      'UPDATE usuarios SET token = ? WHERE id = ?',
+      'UPDATE admins SET token = ? WHERE id = ?',
       [token, users[0].id]
     );
 
@@ -60,7 +63,7 @@ export const authenticate = async (req, res, next) => {
 
     // Verificar token en la base de datos
     const [user] = await pool.query(
-      'SELECT * FROM usuarios WHERE token = ?',
+      'SELECT * FROM admins WHERE token = ?',
       [token]
     );
 
@@ -82,7 +85,7 @@ export const authenticate = async (req, res, next) => {
 router.post('/logout', authenticate, async (req, res) => {
   try {
     await pool.query(
-      'UPDATE usuarios SET token = NULL WHERE id = ?',
+      'UPDATE admins SET token = NULL WHERE id = ?',
       [req.user.id]
     );
     res.json({ message: 'Sesión cerrada' });
