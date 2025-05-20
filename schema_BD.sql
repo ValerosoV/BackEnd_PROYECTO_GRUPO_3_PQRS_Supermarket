@@ -28,9 +28,10 @@ CREATE TABLE radicados (
 );
 
 -- Tabla de usuarios (Gestores de PQRS)
-CREATE TABLE usuarios (
+DROP TABLE IF EXISTS usuarios;
+
+CREATE TABLE admins (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL, -- cifrada
-    rol ENUM('GESTOR', 'ADMIN') DEFAULT 'GESTOR'
+    password VARCHAR(255) NOT NULL -- cifrada
 );

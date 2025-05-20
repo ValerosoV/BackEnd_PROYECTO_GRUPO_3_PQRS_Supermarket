@@ -48,7 +48,7 @@ router.get('/clientes/obtener_todos', async (req, res) => {
     });
   }
 });
-
+// Obtener cliente por número de identificación
 router.get('/clientes/obtener', async (req, res) => {
   try {
     const { numero_identificacion } = req.query;

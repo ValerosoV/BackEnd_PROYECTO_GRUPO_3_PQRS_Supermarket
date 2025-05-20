@@ -1,6 +1,6 @@
 import express from 'express';                          //framework
 import clientesRouter from './routes/clientes.js';      //peticiones de Cliente
-//import radicadosRouter from './routes/radicados.js';
+import radicadosRouter from './routes/radicados.js';
 import authRouter from './routes/auth.js';              //peticiones de Auth  
 import multer from 'multer';                            //algo pra gesionar almacenamiento de archivos   
 import { v4 as uuidv4 } from 'uuid';                    //identiciador unico  
@@ -24,7 +24,7 @@ const upload = multer({ storage });
 
 // Rutas
 app.use('/api', clientesRouter);
-//app.use('/radicados', upload.single('anexo'), radicadosRouter); // Multer solo aquí
+app.use('/api', upload.single('anexo'), radicadosRouter); // Multer solo aquí
 app.use('/api', authRouter);
 
 // Iniciar servidor
