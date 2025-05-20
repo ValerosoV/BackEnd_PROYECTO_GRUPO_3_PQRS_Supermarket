@@ -3,8 +3,8 @@ import clientesRouter from './routes/clientes.js';      //peticiones de Cliente
 import radicadosRouter from './routes/radicados.js';    //peticiones de Radicado
 import adminsRouter from './routes/admins.js';          //peticiones de Admin
 
-import authClientsRouter from './authParaRoutes/authClientes.js';//peticiones de Auth
-import authAdminsRouter from './authParaRoutes/authAdmins.js';   //peticiones de Auth  
+import authClientsRouter from './auth/authClientes.js';//peticiones de Auth
+import authAdminsRouter from './auth/authAdmins.js';   //peticiones de Auth  
 
 import multer from 'multer';                            //paquete para gesionar almacenamiento de archivos   
 import { v4 as uuidv4 } from 'uuid';                    //paquete para identiciador unico  
