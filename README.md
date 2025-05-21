@@ -33,7 +33,10 @@ cd mysql\bin
 mysql -u root -p (-u=usuario root de mysql -p=pide password)
 //hace el login
 
-//o prueba ejecutando el archivo .js de express q realiza cambios en la BD
+copiamos el query en el cliente del gestor respectivo (WorkBench o phpmyadmin)
 
+y tras esto ejecutamos la app con:
+
+node src\app.js
 
 
